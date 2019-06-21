@@ -1,17 +1,8 @@
-const todos = (state = [], action) => {
-    switch (action.type) {
-      case 'ADD_TODO':
-        return [
-          ...state,
-          {
-            id: action.id,
-            text: action.text,
-            completed: false
-          }
-        ]
-      default:
-        return state
-    }
-  }
-  
-  export default todos
+import { combineReducers } from 'redux';
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
+
+export default combineReducers({          // Using combineReducer function to utilize multiple reducers.
+    todos,
+    visibilityFilter
+})
